@@ -109,3 +109,40 @@ pytest
   PyGAD, or scipy.optimize) — the state, operators, and cost function are
   all implemented directly, per the proposal's declarations. matplotlib is
   used only for plotting results.
+
+## CSV Input Schema
+
+The planned CSV input files use the following column headers.
+
+### `courses.csv`
+
+| Column | Description |
+|---|---|
+| `course_id` | Unique identifier for a course |
+| `course_name` | Name of the course |
+
+### `enrollments.csv`
+
+| Column | Description |
+|---|---|
+| `student_id` | Identifier for a student |
+| `course_id` | Identifier for a course the student is enrolled in |
+
+Each row represents one student-course enrollment. A student enrolled in multiple courses appears in multiple rows.
+
+### `rooms.csv`
+
+| Column | Description |
+|---|---|
+| `room_id` | Identifier for an exam room |
+| `capacity` | Maximum number of students the room can accommodate |
+
+### Exam period configuration
+
+The exam timetable uses a grid defined by the number of days and the number of periods per day. The CSV loader is not implemented yet, so this section documents the planned input format rather than a working import feature.
+
+### Sample files
+
+Example CSV files are available in the [`samples/`](samples/) directory.
+
+These files document the planned schema and are provided for reference and testing when CSV ingestion is implemented.

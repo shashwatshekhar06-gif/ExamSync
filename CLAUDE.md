@@ -116,7 +116,7 @@ works end-to-end and produces plausible output."
 | Clean experiment run with the above fixes applied | **Not yet done** — see §6 | #1 |
 | Hyperparameter tuning | Not started | #2 |
 | Results write-up / analysis for the report | Not started | #3 |
-| CSV schema + sample files | Not started | #4 |
+| CSV schema + sample files | Completed (documentation and sample CSVs) | #4 |
 | CSV loader (real data instead of synthetic) | Not started — see §8 | #5 |
 | Frontend stack decision | Not started — see §8.3 | #6 |
 | Frontend MVP | Not started | #7 |
