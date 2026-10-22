@@ -21,9 +21,7 @@ ALGORITHMS = {
     "Simulated Annealing": lambda instance, rng: simulated_annealing.run(
         instance, max_iters=5000, rng=rng
     ),
-    "Genetic Algorithm": lambda instance, rng: genetic_algorithm.run(
-        instance, population_size=40, max_generations=200, rng=rng
-    ),
+    "Genetic Algorithm": lambda instance, rng: genetic_algorithm.run(instance, rng=rng),
 }
 
 

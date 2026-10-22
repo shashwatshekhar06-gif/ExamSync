@@ -152,7 +152,8 @@ exam_timetable/
   algorithms/
     hill_climbing.py        exhaustive neighborhood, scored via delta-cost
     simulated_annealing.py  geometric cooling, Metropolis acceptance
-    genetic_algorithm.py    tournament selection + crossover + per-gene mutation + elitism
+    genetic_algorithm.py    memetic GA: tournament selection + crossover + per-gene mutation +
+                            elitism + fast cost-guided local search per child (docs/ga_memetic.md)
   experiment.py     runs all three algorithms on 10/30/60-exam instances,
                     writes results/comparison.csv and results/plots/*.png
   cli.py            argparse entry point (`solve` and `experiment` subcommands)
@@ -175,6 +176,8 @@ tests/
   test_algorithms.py     smoke tests: each algorithm runs, never regresses
                         (history is non-increasing), returns a valid assignment
   test_csv_loader.py     CSV loader: valid input and each rejected-input case
+  test_ga_memetic.py     GA local search: fast best_shift == brute force delta_shift,
+                        in-place state stays in sync, tracked cost == evaluate()
   test_sample_data.py    the shipped sample is schedulable on the default grid
 main.py             `python main.py <solve|experiment> ...`
 ```

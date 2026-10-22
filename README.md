@@ -57,7 +57,8 @@ exam_timetable/
   algorithms/
     hill_climbing.py        exhaustive neighborhood, scored via delta-cost
     simulated_annealing.py  geometric cooling, Metropolis acceptance
-    genetic_algorithm.py    tournament selection + crossover + per-gene mutation + elitism
+    genetic_algorithm.py    memetic GA: selection + crossover + mutation + elitism +
+                            local search per child (see docs/ga_memetic.md)
   experiment.py     runs all three algorithms on 10/30/60-exam instances,
                     writes results/comparison.csv and results/plots/*.png
   cli.py            argparse entry point

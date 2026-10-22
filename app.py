@@ -202,7 +202,7 @@ def main():
         with st.expander("Advanced settings"):
             hc_max_iters = st.number_input("HC max iterations", min_value=1, value=100)
             sa_max_iters = st.number_input("SA max iterations", min_value=1, value=5000)
-            ga_population = st.number_input("GA population size", min_value=2, value=40)
+            ga_population = st.number_input("GA population size", min_value=2, value=10)
             ga_generations = st.number_input("GA max generations", min_value=1, value=200)
 
         run_seed = st.number_input("Run seed", min_value=0, value=42, step=1)
