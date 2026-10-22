@@ -71,8 +71,15 @@ path to find, just a state space with a cost function to minimize.
 - **Actions/operators**: a *shift* (move one exam to a different
   slot/room) or a *swap* (trade the slot/room of two exams). HC looks at
   every possible shift and swap each round and takes the single best
-  (steepest-descent). GA instead uses tournament selection + single-point
-  crossover + mutation + elitism.
+  (steepest-descent). GA uses tournament selection + single-point
+  crossover + mutation + elitism, as proposed — **plus a declared
+  enhancement beyond the Review 1 proposal**: every child also gets a
+  short cost-guided local search (repeated best-shift moves, targeting
+  exams in hard violations) before entering the next generation, making
+  it a *memetic* GA. Still hand-implemented, no external
+  optimization library. Design, rationale, and benchmarks:
+  `docs/ga_memetic.md`. Flag this explicitly if the Review 2 write-up or
+  submission needs the original proposal amended to match.
 - **Objective/cost function**: a weighted sum of hard violations (weight
   10) and soft violations (weight 1). Cost 0 = a fully valid timetable.
 - **Goal test**: `cost(state) == 0`. If the iteration/generation budget
@@ -80,7 +87,7 @@ path to find, just a state space with a cost function to minimize.
 - **Termination**: HC stops when no move improves the state, or at
   `max_iters`. SA's temperature decays geometrically (`T *= alpha`) until
   it drops below `min_temp`, or `max_iters` is hit. GA stops at
-  `max_generations`, or once the best fitness plateaus for
+  `max_generations`, at cost 0, or once the best fitness plateaus for
   `plateau_limit` generations.
 
 ### The cost function, precisely (`exam_timetable/cost.py`)
